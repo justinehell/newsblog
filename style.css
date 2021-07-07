@@ -1,0 +1,66 @@
+:root {
+  --dark-primary: #060833;
+  --dark-secondary: #333a64;
+  --blue-primary: #3148c5;
+  --blue-secondary: #1e33a8;
+  --light-bg: rgba(49, 72, 197, 0.16);
+  --light-gray: #959db8;
+  --white: #fff;
+}
+
+/* HEADER STYLES */
+
+header {
+  background: var(--dark-primary);
+  color: var(--white);
+  padding: 20px 0;
+  min-height: 120px;
+}
+
+nav > div {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.navigation > li {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.menu-top {
+  text-transform: uppercase;
+  font-size: 0.65rem;
+}
+.menu-top > li > a,
+.menu-top > li > a:visited {
+  color: var(--light-gray);
+  transition: color 300ms;
+}
+.menu-top li a:hover {
+  color: var(--white);
+}
+
+.menu-top__social > li {
+  margin-right: 10px;
+}
+.menu-bottom > li > a,
+.menu-bottom > li > a:visited {
+  color: var(--white);
+  font-weight: 600;
+  transition: color 300ms;
+}
+
+.menu-bottom li a:hover {
+  color: var(--light-gray);
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  fill: var(--light-gray);
+  transition: fill 300ms;
+}
+
+.icon:hover {
+  fill: var(--white);
+}
