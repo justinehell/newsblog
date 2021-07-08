@@ -2,15 +2,17 @@
   font-family: 'Heebo';
   src: url('assets/fonts/Heebo-Regular.ttf');
   font-style: normal;
-  font-weight: normal;
+  /* font-weight: normal; */
 }
 
+* {
+  box-sizing: border-box;
+}
 body {
   box-sizing: border-box;
   margin: 0;
   font-family: 'Heebo';
-  line-height: 1.5;
-  letter-spacing: 1px;
+  /* line-height: 1.5; */
 }
 
 ul {
@@ -26,7 +28,7 @@ ul li a {
 }
 
 .wrapper {
-  max-width: 1180px;
+  max-width: 1220px;
   margin: auto;
 }
 
