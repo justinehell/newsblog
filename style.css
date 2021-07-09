@@ -15,100 +15,75 @@ header {
   background: var(--dark-primary);
   color: var(--white);
   padding: 20px 0;
-  min-height: 120px;
+}
+.menu {
+  overflow: hidden;
+}
+.menu__link {
+  padding-right: 10px;
+  color: var(--white);
+  font-weight: 600;
+}
+.menu__link:hover {
+  color: var(--light-gray);
 }
 
-nav > div {
-  margin-top: 10px;
-  margin-bottom: 15px;
+.menu__link--secondary {
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  font-weight: normal;
+  color: var(--light-gray);
 }
-
-.navigation > li {
+.menu__link--secondary:hover {
+  color: var(--white);
+}
+.menu__link--stretch {
   padding-right: 20px;
   padding-left: 20px;
 }
-
-.menu-top {
-  text-transform: uppercase;
-  font-size: 0.65rem;
-}
-.menu-top > li > a,
-.menu-top > li > a:visited {
-  color: var(--light-gray);
-  transition: color 300ms;
-}
-.menu-top li a:hover {
-  color: var(--white);
-}
-
-.menu-top__social > li {
-  margin-right: 10px;
-}
-.menu-bottom > li > a,
-.menu-bottom > li > a:visited {
-  color: var(--white);
-  font-weight: 600;
-  transition: color 300ms;
-}
-
-.menu-bottom li a:hover {
-  color: var(--light-gray);
-}
-
-.icon {
+.menu__icon {
   width: 20px;
   height: 20px;
   fill: var(--light-gray);
   transition: fill 300ms;
 }
-
-.icon:hover {
+.menu__icon:hover {
   fill: var(--white);
 }
 
-.toggle-btn {
+.btn-menu {
   color: var(--white);
   background-color: transparent;
-  border: none;
-  cursor: pointer;
   padding-right: 20px;
-  display: none;
-}
-
-.toggle-btn svg {
-  fill: var(--white);
 }
 
 /* ARTICLES STYLES */
-main > div.wrapper > h1 {
+h1 {
   padding: 20px 0;
   font-weight: 800;
 }
 
-main > div.wrapper > section {
+section {
   display: grid;
   grid-template-columns: repeat(3, minmax(200px, 1fr));
   gap: 4rem 2rem;
 }
 
-.article-card {
+.card {
   background: var(--light-bg);
   border-radius: 10px;
 }
-
-.article-card img {
+.card__image {
   width: 100%;
   aspect-ratio: 4/3;
   border-top-left-radius: 3%;
   border-top-right-radius: 3%;
   object-fit: cover;
 }
-
-.article-card .article-card__content {
+.card__content {
   padding: 25px;
 }
-
-.article-card .article-card__content span.tags {
+.card__tag {
   color: var(--blue-primary);
   padding: 5px 10px;
   background-color: var(--light-bg-secondary);
@@ -116,14 +91,12 @@ main > div.wrapper > section {
   font-size: 12px;
   font-weight: 600;
 }
-
-.article-card .article-card__content h2 {
+.card__title {
   color: var(--dark-secondary);
   font-weight: 600;
   line-height: 1.2;
 }
-
-.article-card .article-card__content span.date {
+.card__date {
   color: var(--light-gray);
   font-size: 10px;
   letter-spacing: 1px;
@@ -136,28 +109,40 @@ main > div.wrapper > section {
 }
 
 @media (max-width: 960px) {
-  main > div.wrapper > section {
+  section {
     grid-template-columns: repeat(2, minmax(150px, 1fr));
   }
-  .toggle-btn {
+  .btn-menu {
     display: block;
   }
-  .menu-bottom {
-    display: none;
+
+  #menu-bottom {
+    flex-wrap: wrap;
+  }
+  #menu-bottom-list {
+    order: 999;
+    width: 100%;
+    display: block;
+    margin-top: 30px;
+    max-height: 0;
+    transition: all 300ms ease-in-out;
+  }
+  #menu-bottom-list li {
+    margin-bottom: 10px;
   }
 }
 
 @media (max-width: 600px) {
-  main > div.wrapper > section {
+  section {
     grid-template-columns: 1fr;
   }
   .wrapper {
     margin: 0 20px;
   }
-  nav > div > img {
+  #logo {
     width: 230px;
   }
-  .menu-top {
+  #menu-top {
     display: none;
   }
 }

@@ -1,3 +1,7 @@
+:root {
+  --spacing: 8px;
+}
+
 @font-face {
   font-family: 'Heebo';
   src: url('assets/fonts/Heebo-Regular.ttf');
@@ -14,30 +18,65 @@ body {
   font-family: 'Heebo';
   /* line-height: 1.5; */
 }
-
 ul {
   padding: 0;
+  margin: 0;
 }
-
 ul li {
   list-style-type: none;
 }
-
 ul li a {
   text-decoration: none;
+}
+button {
+  border: none;
+  cursor: pointer;
 }
 
 .wrapper {
   max-width: 1220px;
   margin: auto;
 }
-
-.flex {
+.d-none {
+  display: none;
+}
+.d-block {
+  display: block;
+}
+.d-flex {
   display: flex;
 }
-
 .justify-between {
   justify-content: space-between;
 }
+.align-center {
+  align-items: center;
+}
+.wrap {
+  flex-wrap: wrap;
+}
 
-/* MARGIN PADDING */
+/* Spacing Margin */
+.my-1 {
+  margin: calc(var(--spacing) * 1) 0;
+}
+
+.mx-1 {
+  margin: 0 calc(var(--spacing) * 1);
+}
+
+.mb-1 {
+  margin-bottom: calc(var(--spacing) * 1); /* 8px*/
+}
+
+.mt-1 {
+  margin-top: calc(var(--spacing) * 1); /* 8px*/
+}
+
+.mb-2 {
+  margin-bottom: calc(var(--spacing) * 2); /* 16px*/
+}
+
+.mt-2 {
+  margin-top: calc(var(--spacing) * 2); /* 16px*/
+}

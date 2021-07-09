@@ -11,12 +11,12 @@
   <body>
     <header>
       <nav class="wrapper">
-        <div class="flex justify-between">
-          <ul class="menu-top menu-top__social flex justify-between">
+        <div id="menu-top" class="d-flex justify-between my-1">
+          <ul class="menu d-flex justify-between">
             <li>
-              <a href="" title="icon-facebook">
+              <a class="menu__link" href="" title="icon-facebook">
                 <svg
-                  class="icon"
+                  class="menu__icon"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   aria-hidden="true"
@@ -33,9 +33,9 @@
               </a>
             </li>
             <li>
-              <a href="" title="icon-twitter">
+              <a class="menu__link" href="" title="icon-twitter">
                 <svg
-                  class="icon"
+                  class="menu__icon"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   aria-hidden="true"
@@ -52,9 +52,9 @@
               </a>
             </li>
             <li>
-              <a href="" title="icon-linkedin">
+              <a class="menu__link" href="" title="icon-linkedin">
                 <svg
-                  class="icon"
+                  class="menu__icon"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   aria-hidden="true"
@@ -71,9 +71,9 @@
               </a>
             </li>
             <li>
-              <a href="" title="icon-instagram">
+              <a class="menu__link" href="" title="icon-instagram">
                 <svg
-                  class="icon"
+                  class="menu__icon"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   aria-hidden="true"
@@ -90,9 +90,9 @@
               </a>
             </li>
             <li>
-              <a href="" title="icon-pinterest">
+              <a class="menu__link" href="" title="icon-pinterest">
                 <svg
-                  class="icon"
+                  class="menu__icon"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   aria-hidden="true"
@@ -109,9 +109,9 @@
               </a>
             </li>
             <li>
-              <a href="" title="icon-youtube">
+              <a class="menu__link" href="" title="icon-youtube">
                 <svg
-                  class="icon"
+                  class="menu__icon"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   aria-hidden="true"
@@ -128,33 +128,64 @@
               </a>
             </li>
           </ul>
-          <ul class="menu-top navigation flex justify-between">
+          <ul id="menu-top-list" class="menu d-flex justify-between">
             <li>
-              <a href="" title="a propos">A propos</a>
+              <a
+                class="menu__link--secondary menu__link--stretch"
+                href=""
+                title="a propos"
+                >A propos</a
+              >
             </li>
             <li>
-              <a href="" title="mes favoris">Mes favoris</a>
+              <a
+                class="menu__link--secondary menu__link--stretch"
+                href=""
+                title="mes favoris"
+                >Mes favoris</a
+              >
             </li>
           </ul>
         </div>
-        <div class="flex justify-between">
-          <img src="assets/images/logo.svg" alt="logo de News Blog" />
-          <ul class="menu-bottom navigation flex justify-between">
+        <div id="menu-bottom" class="d-flex justify-between my-1">
+          <img id="logo" src="assets/images/logo.svg" alt="logo de News Blog" />
+          <ul
+            id="menu-bottom-list"
+            class="menu d-flex justify-between align-center"
+          >
             <li>
-              <a href="" title="actualités">Actualités</a>
+              <a
+                class="menu__link menu__link--stretch"
+                href=""
+                title="actualités"
+                >Actualités</a
+              >
             </li>
             <li>
-              <a href="" title="technologie">Technologie</a>
+              <a
+                class="menu__link menu__link--stretch"
+                href=""
+                title="technologie"
+                >Technologie</a
+              >
             </li>
             <li>
-              <a href="" title="sciences">Sciences</a>
+              <a class="menu__link menu__link--stretch" href="" title="sciences"
+                >Sciences</a
+              >
             </li>
             <li>
-              <a href="" title="diverstissement">Divertissement</a>
+              <a
+                class="menu__link menu__link--stretch"
+                href=""
+                title="diverstissement"
+                >Divertissement</a
+              >
             </li>
           </ul>
           <button
-            class="toggle-btn"
+            id="toggle-menu-btn"
+            class="btn-menu d-none"
             type="button"
             aria-label="Replier la navigation"
           >
@@ -162,6 +193,7 @@
               viewBox="0 -53 384 384"
               width="20"
               height="20"
+              fill="white"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
@@ -182,69 +214,87 @@
       <div class="wrapper">
         <h1>Les articles les plus lus</h1>
         <section style="background: white">
-          <div class="article-card">
-            <img src="assets/images/headphone.webp" alt="headphone" />
-            <div class="article-card__content">
-              <span class="tags">Logiciels</span>
-              <h2>
+          <div class="card">
+            <img
+              class="card__image"
+              src="assets/images/headphone.webp"
+              alt="headphone"
+            />
+            <div class="card__content">
+              <span class="card__tag">Logiciels</span>
+              <h2 class="card__title">
                 17 Logiciels pour créer vos wireframes et prototypes animés
               </h2>
-              <span class="date">04/03/2021</span>
+              <span class="card__date">04/03/2021</span>
             </div>
           </div>
-          <div class="article-card">
-            <img src="assets/images/img.webp" alt="skate" />
-            <div class="article-card__content">
-              <span class="tags">Logiciels</span>
-              <h2>
+          <div class="card">
+            <img class="card__image" src="assets/images/img.webp" alt="skate" />
+            <div class="card__content">
+              <span class="card__tag">Logiciels</span>
+              <h2 class="card__title">
                 17 Logiciels pour créer vos wireframes et prototypes animés
               </h2>
-              <span class="date">04/03/2021</span>
+              <span class="card__date">04/03/2021</span>
             </div>
           </div>
-          <div class="article-card">
-            <img src="assets/images/headphones.jpg" alt="headphones" />
-            <div class="article-card__content">
-              <span class="tags">Logiciels</span>
-              <h2>
+          <div class="card">
+            <img
+              class="card__image"
+              src="assets/images/headphones.jpg"
+              alt="headphones"
+            />
+            <div class="card__content">
+              <span class="card__tag">Logiciels</span>
+              <h2 class="card__title">
                 17 Logiciels pour créer vos wireframes et prototypes animés
               </h2>
-              <span class="date">04/03/2021</span>
+              <span class="card__date">04/03/2021</span>
             </div>
           </div>
-          <div class="article-card">
-            <img src="assets/images/headphone.webp" alt="headphone" />
-            <div class="article-card__content">
-              <span class="tags">Logiciels</span>
-              <h2>
+          <div class="card">
+            <img
+              class="card__image"
+              src="assets/images/headphone.webp"
+              alt="headphone"
+            />
+            <div class="card__content">
+              <span class="card__tag">Logiciels</span>
+              <h2 class="card__title">
                 17 Logiciels pour créer vos wireframes et prototypes animés
               </h2>
-              <span class="date">04/03/2021</span>
+              <span class="card__date">04/03/2021</span>
             </div>
           </div>
-          <div class="article-card">
-            <img src="assets/images/img.webp" alt="skate" />
-            <div class="article-card__content">
-              <span class="tags">Logiciels</span>
-              <h2>
+          <div class="card">
+            <img class="card__image" src="assets/images/img.webp" alt="skate" />
+            <div class="card__content">
+              <span class="card__tag">Logiciels</span>
+              <h2 class="card__title">
                 17 Logiciels pour créer vos wireframes et prototypes animés
               </h2>
-              <span class="date">04/03/2021</span>
+              <span class="card__date">04/03/2021</span>
             </div>
           </div>
-          <div class="article-card">
-            <img src="assets/images/headphones.jpg" alt="headphones" />
-            <div class="article-card__content">
-              <span class="tags">Logiciels</span>
-              <h2>
+          <div class="card">
+            <img
+              class="card__image"
+              src="assets/images/headphones.jpg"
+              alt="headphones"
+            />
+            <div class="card__content">
+              <span class="card__tag">Logiciels</span>
+              <h2 class="card__title">
                 17 Logiciels pour créer vos wireframes et prototypes animés
               </h2>
-              <span class="date">04/03/2021</span>
+              <span class="card__date">04/03/2021</span>
             </div>
           </div>
         </section>
       </div>
     </main>
     <footer>footer</footer>
+
+    <script src="index.js"></script>
   </body>
 </html>
