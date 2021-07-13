@@ -48,10 +48,14 @@ fetch(`${baseUrl}access_key=${API_KEY}&languages=fr,en`)
               alt="headphone"
             />
             <div class="card__content d-flex flex-grow">
-              <span class="card__tag">${news.category}</span>
+              <span class="card__tag">${
+                news.category.charAt(0).toUpperCase() + news.category.slice(1)
+              }</span>
               <h2 id="title_${i}" class="card__title">${news.title}</h2>
               <div class="flex-grow"></div>
-              <span class="card__date">${news.published_at}</span>
+              <span class="card__date">${dayjs(news.published_at).format(
+                'DD/MM/YYYY'
+              )}</span>
             </div>
             </div>`;
       })

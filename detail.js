@@ -5,9 +5,12 @@ let searchParams = new URLSearchParams(search);
 
 let currentNews = newsData[searchParams.get('id')];
 
-document.getElementById('tag').innerText = currentNews.category;
+document.getElementById('tag').innerText =
+  currentNews.category.charAt(0).toUpperCase() + currentNews.category.slice(1);
 document.getElementById('title').innerText = currentNews.title;
-document.getElementById('date').innerText = currentNews.published_at;
+document.getElementById('date').innerText = dayjs(
+  currentNews.published_at
+).format('DD/MM/YYYY');
 document.getElementById('description').innerText = currentNews.description;
 document
   .getElementById('image')
