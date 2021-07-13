@@ -1,5 +1,3 @@
-console.log('script index.js');
-
 let menuBurger = document.getElementById('toggle-menu-btn');
 let menuBottomList = document.getElementById('menu-bottom-list');
 
@@ -40,19 +38,19 @@ fetch(`${baseUrl}access_key=${API_KEY}&languages=fr,en`)
   .then(function (data) {
     // This is the JSON from our response
     newsData = data.data;
-    console.log(newsData);
-    const html = data.data
+    const html = newsData
       .map((news, i) => {
         return `
-        <div id="${i}" class="card" onclick="handleClick(this.id)">
+        <div id="card_${i}" class="card d-flex" onclick="handleClick(${i})" onmouseenter="handleMouseEnter(${i})" onmouseleave="handleMouseLeave(${i})">
             <img
             class="card__image"
               src=${news.image ? news.image : 'assets/images/news.jpg'}
               alt="headphone"
             />
-            <div class="card__content">
+            <div class="card__content d-flex flex-grow">
               <span class="card__tag">${news.category}</span>
-              <h2 class="card__title">${news.title}</h2>
+              <h2 id="title_${i}" class="card__title">${news.title}</h2>
+              <div class="flex-grow"></div>
               <span class="card__date">${news.published_at}</span>
             </div>
             </div>`;
@@ -68,8 +66,16 @@ fetch(`${baseUrl}access_key=${API_KEY}&languages=fr,en`)
   });
 
 const handleClick = (id) => {
-  if (!isLoading) {
-    let query = '?id=' + id;
-    window.location.href = 'detail.html' + query;
-  }
+  let query = '?id=' + id;
+  window.location.href = 'detail.html' + query;
+};
+
+const handleMouseEnter = (id) => {
+  document.getElementById(`title_${id}`).classList.add('card__title--hover');
+  document.getElementById(`card_${id}`).classList.add('card--up');
+};
+
+const handleMouseLeave = (id) => {
+  document.getElementById(`title_${id}`).classList.remove('card__title--hover');
+  document.getElementById(`card_${id}`).classList.remove('card--up');
 };

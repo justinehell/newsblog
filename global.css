@@ -55,6 +55,9 @@ button {
 .wrap {
   flex-wrap: wrap;
 }
+.flex-grow {
+  flex-grow: 1;
+}
 
 /* Spacing Margin */
 .my-1 {

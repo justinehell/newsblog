@@ -1,5 +1,3 @@
-console.log('script detail.js');
-
 let newsData = JSON.parse(localStorage.getItem('newsData'));
 let search = window.location.search; // '?id=4'
 search = search.substring(1);
