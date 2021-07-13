@@ -1,7 +1,10 @@
+console.log('script index.js');
+
 let menuBurger = document.getElementById('toggle-menu-btn');
 let menuBottomList = document.getElementById('menu-bottom-list');
 
 let isClicked = false;
+let isLoading = true;
 
 const showMenuBottom = () => {
   menuBottomList.style.maxHeight = '300px';
@@ -39,11 +42,11 @@ fetch(`${baseUrl}access_key=${API_KEY}&languages=fr,en`)
     newsData = data.data;
     console.log(newsData);
     const html = data.data
-      .map((news) => {
+      .map((news, i) => {
         return `
-          <div class="card">
+        <div id="${i}" class="card" onclick="handleClick(this.id)">
             <img
-              class="card__image"
+            class="card__image"
               src=${news.image ? news.image : 'assets/images/news.jpg'}
               alt="headphone"
             />
@@ -52,12 +55,21 @@ fetch(`${baseUrl}access_key=${API_KEY}&languages=fr,en`)
               <h2 class="card__title">${news.title}</h2>
               <span class="card__date">${news.published_at}</span>
             </div>
-          </div>`;
+            </div>`;
       })
       .join('');
     document.querySelector('section').insertAdjacentHTML('afterbegin', html);
+    localStorage.setItem('newsData', JSON.stringify(newsData));
+    isLoading = false;
   })
   .catch(function (err) {
     // There was an error
     console.warn('Something went wrong.', err);
   });
+
+const handleClick = (id) => {
+  if (!isLoading) {
+    let query = '?id=' + id;
+    window.location.href = 'detail.html' + query;
+  }
+};

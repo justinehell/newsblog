@@ -23,6 +23,7 @@ header {
   padding-right: 10px;
   color: var(--white);
   font-weight: 600;
+  transition: color 300ms;
 }
 .menu__link:hover {
   color: var(--light-gray);
@@ -33,6 +34,7 @@ header {
   font-size: 0.65rem;
   font-weight: normal;
   color: var(--light-gray);
+  transition: color 300ms;
 }
 .menu__link--secondary:hover {
   color: var(--white);
@@ -57,7 +59,7 @@ header {
   padding-right: 20px;
 }
 
-/* ARTICLES STYLES */
+/* CARD STYLES */
 h1 {
   padding: 20px 0;
   font-weight: 800;
@@ -83,7 +85,8 @@ section {
 .card__content {
   padding: 25px;
 }
-.card__tag {
+.card__tag,
+.article__tag {
   color: var(--blue-primary);
   padding: 5px 10px;
   background-color: var(--light-bg-secondary);
@@ -96,10 +99,36 @@ section {
   font-weight: 600;
   line-height: 1.2;
 }
-.card__date {
+.card__date,
+.article__date {
   color: var(--light-gray);
   font-size: 10px;
   letter-spacing: 1px;
+}
+
+/* ARTICLE - DETAIL PAGE */
+.article {
+  max-width: 70%;
+}
+.article__date {
+  font-size: 14px;
+}
+.article__title {
+  font-size: 42px;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.1;
+  color: var(--dark-primary);
+}
+.article__image {
+  display: block;
+  border-radius: 10px;
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+}
+.article__description {
+  text-align: justify;
 }
 
 @media (max-width: 1264px) {
