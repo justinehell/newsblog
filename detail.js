@@ -1,4 +1,4 @@
-let newsData = JSON.parse(localStorage.getItem('newsData'));
+let newsData = JSON.parse(sessionStorage.getItem('newsData'));
 let search = window.location.search; // '?id=4'
 search = search.substring(1);
 let searchParams = new URLSearchParams(search);
