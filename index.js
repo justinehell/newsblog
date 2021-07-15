@@ -62,38 +62,35 @@ const storeData = (data) => {
 };
 
 const displayData = (newsData) => {
-  let html = newsData
-    .map((news, i) => {
-      return `
-      <div id="card_${
-        i + newsOffset
-      }" class="card d-flex" onclick="handleClick(${
-        i + newsOffset
-      })" onmouseenter="handleMouseEnter(${
-        i + newsOffset
-      })" onmouseleave="handleMouseLeave(${i + newsOffset})">
-      <img
-      class="card__image"
-      src=${news.image ? news.image : 'assets/images/news.jpg'}
-            alt="headphone"
-            />
-            <div class="card__content d-flex flex-grow">
-            <span class="card__tag">${
-              news.category.charAt(0).toUpperCase() + news.category.slice(1)
-            }</span>
-            <h2 id="title_${i}" class="card__title">${news.title}</h2>
-            <div class="flex-grow"></div>
-            <span class="card__date">${dayjs(news.published_at).format(
-              'DD/MM/YYYY'
-            )}</span>
-          </div>
-          </div>
-          `;
-    })
-    .join('');
-  return document
-    .querySelector('section')
-    .insertAdjacentHTML('beforeend', html);
+  const cardTemplate = document.getElementById('cardTemplate');
+
+  newsData.forEach((news, i) => {
+    let cardTemplateClone = document.importNode(cardTemplate.content, true);
+    let card = cardTemplateClone.querySelector('.card');
+    let cardImg = cardTemplateClone.querySelector('.card__image');
+    let cardTag = cardTemplateClone.querySelector('.card__tag');
+    let cardTitle = cardTemplateClone.querySelector('.card__title');
+    let cardDate = cardTemplateClone.querySelector('.card__date');
+
+    card.id = `card_${i + newsOffset}`;
+    cardTitle.id = `title_${i + newsOffset}`;
+    cardTitle.innerText = news.title;
+    cardTag.innerText =
+      news.category.charAt(0).toUpperCase() + news.category.slice(1);
+    cardDate.innerText = dayjs(news.published_at).format('DD/MM/YYYY');
+    cardImg.src = news.image ? news.image : 'assets/images/news.jpg';
+
+    card.addEventListener('click', () => {
+      handleClick(i);
+    });
+    card.addEventListener('mouseenter', () => {
+      handleMouseEnter(i);
+    });
+    card.addEventListener('mouseleave', () => {
+      handleMouseLeave(i);
+    });
+    return document.querySelector('section').appendChild(cardTemplateClone);
+  });
 };
 
 const showNews = async () => {
