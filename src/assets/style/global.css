@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: 'Heebo';
-  src: url('assets/fonts/Heebo-Regular.ttf');
+  src: url('../fonts/Heebo-Regular.ttf');
   font-style: normal;
   /* font-weight: normal; */
 }
