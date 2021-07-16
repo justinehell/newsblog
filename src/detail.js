@@ -2,6 +2,7 @@ import './assets/style/global.css';
 import './assets/style/style.css';
 import Logo from './assets/images/logo.svg';
 import NewsImage from './assets/images/news.jpg';
+import dayjs from 'dayjs';
 
 let newsData = JSON.parse(sessionStorage.getItem('newsData'));
 let search = window.location.search; // '?id=4'

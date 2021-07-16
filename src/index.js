@@ -2,6 +2,7 @@ import './assets/style/global.css';
 import './assets/style/style.css';
 import Logo from './assets/images/logo.svg';
 import NewsImage from './assets/images/news.jpg';
+import dayjs from 'dayjs';
 
 const BASE_URL = process.env.BASE_URL;
 const API_KEY = process.env.API_KEY;
