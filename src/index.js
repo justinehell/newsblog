@@ -3,17 +3,22 @@ import './assets/style/style.css';
 import Logo from './assets/images/logo.svg';
 import NewsImage from './assets/images/news.jpg';
 
-const BASE_URL = 'http://api.mediastack.com/v1/news?';
-const API_KEY = 'bad01aea03e9ee9217f0c4c242eff258';
+const BASE_URL = process.env.BASE_URL;
+const API_KEY = process.env.API_KEY;
+
 const LIMIT = 9;
 
 let isClicked = false;
 let isLoading = false;
 let newsOffset = 0;
 
-document.getElementById('logo').src = Logo;
+if (process.env.NODE_ENV !== 'production') {
+  console.log('Looks like we are in development mode!');
+} else {
+  console.log('Well hello production mode!');
+}
 
-cnosole.log('hello');
+document.getElementById('logo').src = Logo;
 
 let menuBurger = document.getElementById('toggle-menu-btn');
 let menuBottomList = document.getElementById('menu-bottom-list');

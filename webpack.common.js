@@ -1,8 +1,10 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+//const { EnvironmentPlugin } = require('webpack');
+const { DefinePlugin } = require('webpack');
+const dotenv = require('dotenv').config({ path: '.env' });
 
 module.exports = {
-  mode: 'development',
   entry: {
     index: path.resolve(__dirname, './src/index.js'),
     detail: path.resolve(__dirname, './src/detail.js'),
@@ -41,9 +43,12 @@ module.exports = {
       chunks: ['detail'], // to add only detail.bundle.js as script to detail.html
       scriptLoading: 'blocking',
     }),
+    // new EnvironmentPlugin({
+    //   API_KEY: 'MySecretKey',
+    //   BASE_URL: 'http://google.com',
+    // }), // accessible via process.env.API_KEY
+    new DefinePlugin({
+      'process.env': JSON.stringify(dotenv.parsed), // it will automatically pick up key values from .env file
+    }),
   ],
-  devServer: {
-    contentBase: path.join(__dirname, 'dist'),
-    port: 9000,
-  },
 };

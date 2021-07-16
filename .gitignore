@@ -21,3 +21,5 @@ dist/
 
 # Output of 'npm pack'
 *.tgz
+
+.env
