@@ -1,3 +1,7 @@
+// import 'regenerator-runtime/runtime';
+
+import NewsImage from './assets/images/news.jpg';
+
 let newsData = JSON.parse(sessionStorage.getItem('newsData'));
 let search = window.location.search; // '?id=4'
 search = search.substring(1);
@@ -14,7 +18,4 @@ document.getElementById('date').innerText = dayjs(
 document.getElementById('description').innerText = currentNews.description;
 document
   .getElementById('image')
-  .setAttribute(
-    'src',
-    currentNews.image ? currentNews.image : 'assets/images/news.jpg'
-  );
+  .setAttribute('src', currentNews.image ? currentNews.image : NewsImage);

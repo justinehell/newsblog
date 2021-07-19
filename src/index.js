@@ -1,3 +1,7 @@
+// import 'regenerator-runtime/runtime';
+
+import NewsImage from './assets/images/news.jpg';
+
 const BASE_URL = 'http://api.mediastack.com/v1/news?';
 const API_KEY = 'bad01aea03e9ee9217f0c4c242eff258';
 const LIMIT = 9;
@@ -62,7 +66,7 @@ const storeData = (data) => {
 };
 
 const displayData = (newsData) => {
-  const cardTemplate = document.getElementById('cardTemplate');
+  const cardTemplate = document.getElementById('card-template');
 
   newsData.forEach((news, i) => {
     let cardTemplateClone = document.importNode(cardTemplate.content, true);
@@ -78,7 +82,7 @@ const displayData = (newsData) => {
     cardTag.innerText =
       news.category.charAt(0).toUpperCase() + news.category.slice(1);
     cardDate.innerText = dayjs(news.published_at).format('DD/MM/YYYY');
-    cardImg.src = news.image ? news.image : 'assets/images/news.jpg';
+    cardImg.src = news.image ? news.image : NewsImage;
 
     card.addEventListener('click', () => {
       handleClick(i);

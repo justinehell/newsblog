@@ -4,11 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="global.css" />
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="./style/global.css" />
+    <link rel="stylesheet" type="text/css" href="./style/style.css" />
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <script src="https://unpkg.com/dayjs@1.8.21/plugin/utc.js"></script>
-    <title>Article</title>
+    <title>News Blog</title>
   </head>
   <body>
     <header>
@@ -150,10 +150,10 @@
           </ul>
         </div>
         <div id="menu-bottom" class="d-flex justify-between my-1">
-          <a href="index.html" title="retour accueil">
+          <a href="index.html" title="retour acceuil">
             <img
               id="logo"
-              src="assets/images/logo.svg"
+              src="./assets/images/logo.svg"
               alt="logo de News Blog"
             />
           </a>
@@ -220,20 +220,24 @@
     </header>
     <main>
       <div class="wrapper">
-        <div class="article mt-2">
-          <span id="tag" class="article__tag"></span>
-          <h1 id="title" class="article__title"></h1>
-          <span id="date" class="article__date"></span>
-          <img
-            id="image"
-            src="assets/images/news.jpg"
-            alt="news"
-            class="article__image mt-2"
-          />
-          <p id="description" class="article__description"></p>
-        </div>
+        <h1>Les articles les plus lus</h1>
+        <section></section>
+        <template id="card-template">
+          <div class="card d-flex">
+            <img class="card__image" src="" alt="News" />
+            <div class="card__content d-flex flex-grow">
+              <span class="card__tag"></span>
+              <h2 class="card__title"></h2>
+              <div class="flex-grow"></div>
+              <span class="card__date"></span>
+            </div>
+          </div>
+        </template>
+        <button type="button" onclick="showNews()">Load more</button>
       </div>
     </main>
-    <script src="detail.js"></script>
+    <footer>footer</footer>
+
+    <script src="./index.js"></script>
   </body>
 </html>

@@ -1,0 +1,28 @@
+{
+  "name": "newsblog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel src/index.html src/detail.html",
+    "build": "parcel build src/index.html src/detail.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justinehell/newsblog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/justinehell/newsblog/issues"
+  },
+  "homepage": "https://github.com/justinehell/newsblog#readme",
+  "devDependencies": {},
+  "dependencies": {
+    "regenerator-runtime": "^0.13.7"
+  },
+  "browserslist": [
+    "last 1 Chrome version"
+  ]
+}
