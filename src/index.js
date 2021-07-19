@@ -1,6 +1,4 @@
-// import 'regenerator-runtime/runtime';
-
-import NewsImage from './assets/images/news.jpg';
+import NewsImage from 'url:./assets/images/news.jpg';
 
 const BASE_URL = 'http://api.mediastack.com/v1/news?';
 const API_KEY = 'bad01aea03e9ee9217f0c4c242eff258';
@@ -12,6 +10,7 @@ let newsOffset = 0;
 
 let menuBurger = document.getElementById('toggle-menu-btn');
 let menuBottomList = document.getElementById('menu-bottom-list');
+let showNewsBtn = document.getElementById('show-news-btn');
 
 const showMenuBottom = () => {
   menuBottomList.style.maxHeight = '300px';
@@ -69,6 +68,7 @@ const displayData = (newsData) => {
   const cardTemplate = document.getElementById('card-template');
 
   newsData.forEach((news, i) => {
+    const id = i + newsOffset;
     let cardTemplateClone = document.importNode(cardTemplate.content, true);
     let card = cardTemplateClone.querySelector('.card');
     let cardImg = cardTemplateClone.querySelector('.card__image');
@@ -76,8 +76,8 @@ const displayData = (newsData) => {
     let cardTitle = cardTemplateClone.querySelector('.card__title');
     let cardDate = cardTemplateClone.querySelector('.card__date');
 
-    card.id = `card_${i + newsOffset}`;
-    cardTitle.id = `title_${i + newsOffset}`;
+    card.id = `card_${id}`;
+    cardTitle.id = `title_${id}`;
     cardTitle.innerText = news.title;
     cardTag.innerText =
       news.category.charAt(0).toUpperCase() + news.category.slice(1);
@@ -85,13 +85,13 @@ const displayData = (newsData) => {
     cardImg.src = news.image ? news.image : NewsImage;
 
     card.addEventListener('click', () => {
-      handleClick(i);
+      handleClick(id);
     });
     card.addEventListener('mouseenter', () => {
-      handleMouseEnter(i);
+      handleMouseEnter(id);
     });
     card.addEventListener('mouseleave', () => {
-      handleMouseLeave(i);
+      handleMouseLeave(id);
     });
     return document.querySelector('section').appendChild(cardTemplateClone);
   });
@@ -113,6 +113,10 @@ const initialNews = () => {
 menuBurger.addEventListener('click', () => {
   isClicked = !isClicked;
   isClicked ? showMenuBottom() : hideMenuBottom();
+});
+
+showNewsBtn.addEventListener('click', () => {
+  showNews();
 });
 
 window.addEventListener('resize', function (event) {

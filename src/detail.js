@@ -1,6 +1,4 @@
-// import 'regenerator-runtime/runtime';
-
-import NewsImage from './assets/images/news.jpg';
+import NewsImage from 'url:./assets/images/news.jpg';
 
 let newsData = JSON.parse(sessionStorage.getItem('newsData'));
 let search = window.location.search; // '?id=4'

@@ -1,5 +1,6 @@
 npm init -y (initialise npm)
-npm i -g parcel-bundler (installe parcel)
+(npm i -g parcel-bundler /!\ parcel-bundler deprecated)
+npm i -g parcel
 
-parcel src/index.html src/detail.html (lancer localhost - multiple entries)
-parcel build src/index.html src/detail.html (build avant mise en ligne)
+parcel src/index.html src/detail.html (lancer localhost - multiple entries - serve dist folder without minifying code)
+parcel build src/index.html src/detail.html (build avant mise en ligne - mignify code )
