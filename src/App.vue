@@ -19,26 +19,6 @@ export default {
 
 <style>
 :root {
-  --dark-primary: #060833;
-  --dark-secondary: #333a64;
-  --blue-primary: #3148c5;
-  --blue-secondary: #1e33a8;
-  --light-bg: #f8f9fd;
-  --light-bg-secondary: rgba(49, 72, 197, 0.16);
-  --light-gray: #959db8;
-  --white: #fff;
-}
-
-/* #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-} */
-
-:root {
   --spacing: 8px;
 }
 
@@ -83,45 +63,11 @@ button {
 .d-block {
   display: block;
 }
-.d-flex {
-  display: flex;
-}
-.justify-between {
-  justify-content: space-between;
-}
-.align-center {
-  align-items: center;
-}
 .wrap {
   flex-wrap: wrap;
 }
 .flex-grow {
   flex-grow: 1;
-}
-
-/* Spacing Margin */
-.my-1 {
-  margin: calc(var(--spacing) * 1) 0;
-}
-
-.mx-1 {
-  margin: 0 calc(var(--spacing) * 1);
-}
-
-.mb-1 {
-  margin-bottom: calc(var(--spacing) * 1); /* 8px*/
-}
-
-.mt-1 {
-  margin-top: calc(var(--spacing) * 1); /* 8px*/
-}
-
-.mb-2 {
-  margin-bottom: calc(var(--spacing) * 2); /* 16px*/
-}
-
-.mt-2 {
-  margin-top: calc(var(--spacing) * 2); /* 16px*/
 }
 
 @media (max-width: 1264px) {
@@ -134,7 +80,7 @@ button {
   section {
     grid-template-columns: repeat(2, minmax(150px, 1fr));
   }
-  .btn-menu {
+  #toggle-menu-btn {
     display: block;
   }
 

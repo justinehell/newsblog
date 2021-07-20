@@ -1,89 +1,37 @@
 <template>
-  <header>
+  <header class="px-0 py-5 bg-dark text-white">
     <nav class="wrapper">
-      <div id="menu-top" class="d-flex justify-between my-1">
-        <ul class="menu d-flex justify-between">
-          <li>
-            <a
-              class="menu__link"
-              href="https://www.facebook.com/"
-              target="_blank"
-              title="lien vers le site facebook.com"
-            >
-              <IconFacebook className="menu__icon" />
-            </a>
-          </li>
-          <li>
-            <a
-              class="menu__link"
-              href="https://www.twitter.com/"
-              target="_blank"
-              title="lien vers le site twitter.com"
-            >
-              <IconTwitter className="menu__icon" />
-            </a>
-          </li>
-          <li>
-            <a
-              class="menu__link"
-              href="https://www.linkedin.com/"
-              target="_blank"
-              title="lien vers le site linkedin.com"
-            >
-              <IconLinkedin className="menu__icon" />
-            </a>
-          </li>
-          <li>
-            <a
-              class="menu__link"
-              href="https://www.instagram.com/"
-              target="_blank"
-              title="lien vers le site instagram.com"
-            >
-              <IconInstagram className="menu__icon" />
-            </a>
-          </li>
-          <li>
-            <a
-              class="menu__link"
-              href="https://www.pinterest.com/"
-              target="_blank"
-              title="lien vers le site pinterest.com"
-            >
-              <IconPinterest className="menu__icon" />
-            </a>
-          </li>
-          <li>
-            <a
-              class="menu__link"
-              href="https://www.youtube.com/"
-              target="_blank"
-              title="lien vers le site youtube.com"
-            >
-              <IconYoutube className="menu__icon" />
+      <div id="menu-top" class="flex justify-between items-center py-3">
+        <ul class="overflow-hidden flex justify-between">
+          <li v-for="icon in socialNetworkIcons" :key="icon.id" class="pr-3">
+            <a :href="icon.href" target="_blank" :title="icon.title">
+              <component
+                :is="icon.id"
+                class="w-5 h-5 transition duration-300 transform fill-current text-light-gray hover:text-white"
+              />
             </a>
           </li>
         </ul>
-        <ul id="menu-top-list" class="menu d-flex justify-between">
+        <ul id="menu-top-list" class="overflow-hidden flex justify-between">
           <li>
-            <router-link
-              to="/"
-              class="menu__link--secondary menu__link--stretch"
-              title="a propos"
-              >A propos</router-link
-            >
+            <MenuNavigation
+              secondary
+              :to="{ name: 'home' }"
+              title="A propos"
+              linkTitle="a propos"
+            />
           </li>
           <li>
-            <router-link
-              to="/"
-              class="menu__link--secondary menu__link--stretch"
-              title="favoris"
-              >Mes favoris</router-link
-            >
+            <MenuNavigation
+              secondary
+              :to="{ name: 'home' }"
+              title="Mes favoris"
+              linkTitle="favoris"
+            />
           </li>
         </ul>
       </div>
-      <div id="menu-bottom" class="d-flex justify-between my-1">
+      <div id="menu-bottom" class="flex justify-between items-center py-3">
         <router-link to="/" title="retour acceuil">
           <img
             id="logo"
@@ -93,45 +41,40 @@
         </router-link>
         <ul
           id="menu-bottom-list"
-          class="menu d-flex justify-between align-center"
+          class="overflow-hidden flex justify-between items-center"
         >
           <li>
-            <router-link
-              to="/"
-              class="menu__link menu__link--stretch"
-              title="actualités"
-              >Actualités</router-link
-            >
+            <MenuNavigation
+              :to="{ name: 'home' }"
+              title="Actualités"
+              linkTitle="actualités"
+            />
           </li>
           <li>
-            <router-link
-              to="/"
-              class="menu__link menu__link--stretch"
-              href=""
-              title="technologie"
-              >Technologie</router-link
-            >
+            <MenuNavigation
+              :to="{ name: 'home' }"
+              title="Technologies"
+              linkTitle="technologies"
+            />
           </li>
           <li>
-            <router-link
-              to="/"
-              class="menu__link menu__link--stretch"
-              title="sciences"
-              >Sciences</router-link
-            >
+            <MenuNavigation
+              :to="{ name: 'home' }"
+              title="Sciences"
+              linkTitle="sciences"
+            />
           </li>
           <li>
-            <router-link
-              to="/"
-              class="menu__link menu__link--stretch"
-              title="diverstissement"
-              >Divertissement</router-link
-            >
+            <MenuNavigation
+              :to="{ name: 'home' }"
+              title="Divertissements"
+              linkTitle="diverstissements"
+            />
           </li>
         </ul>
         <button
           id="toggle-menu-btn"
-          class="btn-menu d-none"
+          class="bg-transparent pr-5 hidden"
           type="button"
           aria-label="Replier la navigation"
         >
@@ -150,6 +93,8 @@ import IconInstagram from './Icons/IconInstagram.vue';
 import IconPinterest from './Icons/IconPinterest.vue';
 import IconYoutube from './Icons/IconYoutube.vue';
 import IconMenuBurger from './Icons/IconMenuBurger.vue';
+import MenuNavigation from './Navigation/MenuNavigation.vue';
+
 export default {
   name: 'TheHeader',
   components: {
@@ -160,70 +105,45 @@ export default {
     IconPinterest,
     IconYoutube,
     IconMenuBurger,
+    MenuNavigation,
+  },
+  computed: {
+    socialNetworkIcons() {
+      return [
+        {
+          href: 'https://facebook.com',
+          title: 'lien vers le site facebook.com',
+          id: 'IconFacebook',
+        },
+        {
+          href: 'https://twitter.com',
+          title: 'lien vers le site twitter.com',
+          id: 'IconTwitter',
+        },
+        {
+          href: 'https://linkedin.com',
+          title: 'lien vers le site linkedin.com',
+          id: 'IconLinkedin',
+        },
+        {
+          href: 'https://instagram.com',
+          title: 'lien vers le site instagram.com',
+          id: 'IconInstagram',
+        },
+        {
+          href: 'https://pinterest.com',
+          title: 'lien vers le site pinterest.com',
+          id: 'IconPinterest',
+        },
+        {
+          href: 'https://youtube.com',
+          title: 'lien vers le site youtube.com',
+          id: 'IconYoutube',
+        },
+      ];
+    },
   },
 };
 </script>
 
-<style scoped>
-/* h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-} */
-header {
-  background: var(--dark-primary);
-  color: var(--white);
-  padding: 20px 0;
-}
-.menu {
-  overflow: hidden;
-}
-.menu__link {
-  padding-right: 10px;
-  color: var(--white);
-  font-weight: 600;
-  transition: color 300ms;
-}
-.menu__link:hover {
-  color: var(--light-gray);
-}
-
-.menu__link--secondary {
-  text-transform: uppercase;
-  font-size: 0.65rem;
-  font-weight: normal;
-  color: var(--light-gray);
-  transition: color 300ms;
-}
-.menu__link--secondary:hover {
-  color: var(--white);
-}
-.menu__link--stretch {
-  padding-right: 20px;
-  padding-left: 20px;
-}
-.menu__icon {
-  width: 20px;
-  height: 20px;
-  fill: var(--light-gray);
-  transition: fill 300ms;
-}
-.menu__icon:hover {
-  fill: var(--white);
-}
-
-.btn-menu {
-  color: var(--white);
-  background-color: transparent;
-  padding-right: 20px;
-}
-</style>
+<style scoped></style>
