@@ -11,9 +11,11 @@
     </main>
     <main
       v-else
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16"
+      class="pb-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16"
     >
-      <div v-if="isLoading">Chargement...</div>
+      <template v-if="isLoading">
+        <CardSkeletonLoader v-for="n in 9" :key="n" />
+      </template>
       <NewsCard v-else v-for="(news, i) in newsData" :key="i" :news="news" />
     </main>
   </div>
@@ -22,10 +24,12 @@
 <script>
 import { fetchNews } from '../services/newsApi';
 import NewsCard from '../components/NewsCard.vue';
+import CardSkeletonLoader from '../components/CardSkeletonLoader';
 export default {
   name: 'Home',
   components: {
     NewsCard,
+    CardSkeletonLoader,
   },
   data() {
     return {
@@ -35,14 +39,16 @@ export default {
       offset: 0,
     };
   },
-  mounted() {
+  created() {
     fetchNews(this.offset)
       .then((response) => (this.newsData = response.data.data))
       .catch((error) => {
         console.log(error);
         this.hasError = true;
       })
-      .finally(() => (this.isLoading = false));
+      .finally(() => {
+        setTimeout(() => (this.isLoading = false), 500);
+      });
   },
 };
 </script>
