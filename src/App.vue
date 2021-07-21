@@ -1,8 +1,8 @@
 <template>
   <div>
     <TheHeader />
-    <router-link :to="{ name: 'home' }">Home</router-link>
-    <router-link :to="{ name: 'news' }">News</router-link>
+    <!-- <router-link :to="{ name: 'home' }">Home</router-link>
+    <router-link :to="{ name: 'news' }">News</router-link> -->
     <router-view></router-view>
   </div>
 </template>
