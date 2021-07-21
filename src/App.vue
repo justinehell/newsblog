@@ -18,10 +18,6 @@ export default {
 </script>
 
 <style>
-:root {
-  --spacing: 8px;
-}
-
 @font-face {
   font-family: 'Heebo';
   src: url('assets/fonts/Heebo-Regular.ttf');
@@ -38,16 +34,6 @@ body {
   font-family: 'Heebo';
   /* line-height: 1.5; */
 }
-ul {
-  padding: 0;
-  margin: 0;
-}
-ul li {
-  list-style-type: none;
-}
-ul li a {
-  text-decoration: none;
-}
 button {
   border: none;
   cursor: pointer;
@@ -63,12 +49,6 @@ button {
 .d-block {
   display: block;
 }
-.wrap {
-  flex-wrap: wrap;
-}
-.flex-grow {
-  flex-grow: 1;
-}
 
 @media (max-width: 1264px) {
   .wrapper {
@@ -77,9 +57,6 @@ button {
 }
 
 @media (max-width: 960px) {
-  section {
-    grid-template-columns: repeat(2, minmax(150px, 1fr));
-  }
   #toggle-menu-btn {
     display: block;
   }
@@ -101,9 +78,6 @@ button {
 }
 
 @media (max-width: 600px) {
-  section {
-    grid-template-columns: 1fr;
-  }
   .wrapper {
     margin: 0 20px;
   }

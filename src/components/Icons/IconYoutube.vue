@@ -18,13 +18,5 @@
 <script>
 export default {
   name: 'IconYoutube',
-  props: {
-    className: {
-      type: String,
-      required: false,
-    },
-  },
 };
 </script>
-
-<style></style>

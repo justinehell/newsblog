@@ -18,13 +18,5 @@
 <script>
 export default {
   name: 'IconPinterest',
-  props: {
-    className: {
-      type: String,
-      required: false,
-    },
-  },
 };
 </script>
-
-<style></style>

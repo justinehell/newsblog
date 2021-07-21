@@ -1,12 +1,11 @@
 <template>
   <router-link
     :to="to"
-    :class="[
-      'px-5 transition duration-300 transform ',
-      secondary
-        ? 'uppercase text-xs text-light-gray hover:text-white '
-        : 'font-semibold text-white hover:text-light-gray',
-    ]"
+    class="px-5 transition duration-300"
+    :class="{
+      'uppercase text-xs text-light-gray hover:text-white': secondary,
+      'font-semibold text-white hover:text-light-gray': !secondary,
+    }"
     :title="linkTitle"
     >{{ title }}</router-link
   >
@@ -19,18 +18,15 @@ export default {
     title: {
       type: String,
       required: true,
-      default: 'Title',
     },
     linkTitle: {
       type: String,
       required: false,
+      default: 'title',
     },
     to: {
       type: Object,
       required: true,
-      default() {
-        return { name: 'home' };
-      },
     },
     secondary: {
       type: Boolean,
@@ -40,5 +36,3 @@ export default {
   },
 };
 </script>
-
-<style scoped></style>

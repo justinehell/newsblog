@@ -12,6 +12,7 @@
   },
   "main": "index.js",
   "dependencies": {
+    "@tailwindcss/aspect-ratio": "^0.2.1",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "dayjs": "^1.10.6",
