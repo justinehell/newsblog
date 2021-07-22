@@ -1,7 +1,7 @@
 <template>
-  <header class="px-0 py-5 bg-dark text-white">
-    <nav class="wrapper">
-      <div id="menu-top" class="flex justify-between items-center py-3">
+  <header class="px-0 py-5 bg-dark text-white max-h-96">
+    <nav class="max-w-screen-xl my-0 mx-5 md:mx-10 xl:m-auto">
+      <div class="hidden sm:flex sm:justify-between sm:items-center sm:py-3">
         <ul class="overflow-hidden flex justify-between">
           <li v-for="icon in socialNetworkIcons" :key="icon.id" class="pr-3">
             <a :href="icon.href" target="_blank" :title="icon.title">
@@ -31,52 +31,44 @@
           </li>
         </ul>
       </div>
-      <div id="menu-bottom" class="flex justify-between items-center py-3">
+      <div
+        class="flex justify-between items-center py-3 flex-wrap lg:flex-nowrap"
+      >
         <router-link to="/" title="retour acceuil">
           <img
-            id="logo"
             src="../assets/images/logo.svg"
             alt="logo de News Blog"
+            class="w-56 sm:w-max"
           />
         </router-link>
         <ul
-          id="menu-bottom-list"
-          class="overflow-hidden flex justify-between items-center"
+          class="my-4 lg:my-0 overflow-hidden order-last w-full lg:w-max lg:flex items-center transition-all ease-in-out duration-300"
+          :class="{
+            'max-h-72': isMenuBurgerClicked,
+            'max-h-0 lg:max-h-72': !isMenuBurgerClicked,
+          }"
         >
-          <li>
+          <li
+            v-for="menuLink in menuNavigationLinks"
+            :key="menuLink.title"
+            class="pr-3 lg:mb-0"
+            :class="{
+              'mb-3':
+                menuLink != menuNavigationLinks[menuNavigationLinks.length - 1],
+            }"
+          >
             <MenuNavigationLink
-              :to="{ name: 'home' }"
-              title="Actualités"
-              linkTitle="actualités"
-            />
-          </li>
-          <li>
-            <MenuNavigationLink
-              :to="{ name: 'home' }"
-              title="Technologies"
-              linkTitle="technologies"
-            />
-          </li>
-          <li>
-            <MenuNavigationLink
-              :to="{ name: 'home' }"
-              title="Sciences"
-              linkTitle="sciences"
-            />
-          </li>
-          <li>
-            <MenuNavigationLink
-              :to="{ name: 'home' }"
-              title="Divertissements"
-              linkTitle="diverstissements"
+              :to="menuLink.to"
+              :title="menuLink.title"
+              :linkTitle="menuLink.linkTitle"
             />
           </li>
         </ul>
         <button
-          id="toggle-menu-btn"
-          class="bg-transparent pr-5 hidden"
+          class="bg-transparent block pr-5 order-1 lg:hidden"
           type="button"
           aria-label="Replier la navigation"
+          @click="isMenuBurgerClicked = !isMenuBurgerClicked"
         >
           <IconMenuBurger />
         </button>
@@ -106,6 +98,11 @@ export default {
     IconYoutube,
     IconMenuBurger,
     MenuNavigationLink,
+  },
+  data() {
+    return {
+      isMenuBurgerClicked: false,
+    };
   },
   computed: {
     socialNetworkIcons() {
@@ -139,6 +136,30 @@ export default {
           href: 'https://youtube.com',
           title: 'lien vers le site youtube.com',
           id: 'IconYoutube',
+        },
+      ];
+    },
+    menuNavigationLinks() {
+      return [
+        {
+          to: { name: 'home' },
+          title: 'Actualités',
+          linkTitle: 'actualités',
+        },
+        {
+          to: { name: 'home' },
+          title: 'Technologies',
+          linkTitle: 'technologies',
+        },
+        {
+          to: { name: 'home' },
+          title: 'Sciences',
+          linkTitle: 'sciences',
+        },
+        {
+          to: { name: 'home' },
+          title: 'Divertissements',
+          linkTitle: 'divertissements',
         },
       ];
     },

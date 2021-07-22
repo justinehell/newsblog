@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper pb-6">
+  <div class="pb-6 max-w-screen-xl my-0 mx-5 md:mx-10 xl:m-auto">
     <h1 class="py-10 px-0 font-extrabold text-3xl">
       Les articles les plus lus
     </h1>
@@ -11,7 +11,7 @@
     </main>
     <main
       v-else
-      class="pb-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16"
+      class="pb-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-16"
     >
       <template v-if="isLoading">
         <SkeletonCardLoader v-for="n in 9" :key="n" />

@@ -1,5 +1,7 @@
 <template>
-  <div class="wrapper">
+  <div
+    class="max-w-screen-xl flex justify-center my-0 lg:block md:mx-10 xl:m-auto"
+  >
     <div v-if="news" class="w-3/4 py-4">
       <BaseTag :tag="news.category" big />
       <h1 class="text-dark text-4xl font-semibold px-0 py-5">
