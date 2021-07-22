@@ -14,7 +14,7 @@
         </ul>
         <ul id="menu-top-list" class="overflow-hidden flex justify-between">
           <li>
-            <MenuNavigation
+            <MenuNavigationLink
               secondary
               :to="{ name: 'home' }"
               title="A propos"
@@ -22,7 +22,7 @@
             />
           </li>
           <li>
-            <MenuNavigation
+            <MenuNavigationLink
               secondary
               :to="{ name: 'home' }"
               title="Mes favoris"
@@ -44,28 +44,28 @@
           class="overflow-hidden flex justify-between items-center"
         >
           <li>
-            <MenuNavigation
+            <MenuNavigationLink
               :to="{ name: 'home' }"
               title="Actualités"
               linkTitle="actualités"
             />
           </li>
           <li>
-            <MenuNavigation
+            <MenuNavigationLink
               :to="{ name: 'home' }"
               title="Technologies"
               linkTitle="technologies"
             />
           </li>
           <li>
-            <MenuNavigation
+            <MenuNavigationLink
               :to="{ name: 'home' }"
               title="Sciences"
               linkTitle="sciences"
             />
           </li>
           <li>
-            <MenuNavigation
+            <MenuNavigationLink
               :to="{ name: 'home' }"
               title="Divertissements"
               linkTitle="diverstissements"
@@ -93,7 +93,7 @@ import IconInstagram from './Icons/IconInstagram.vue';
 import IconPinterest from './Icons/IconPinterest.vue';
 import IconYoutube from './Icons/IconYoutube.vue';
 import IconMenuBurger from './Icons/IconMenuBurger.vue';
-import MenuNavigation from './Navigation/MenuNavigation.vue';
+import MenuNavigationLink from './Navigation/MenuNavigationLink.vue';
 
 export default {
   name: 'TheHeader',
@@ -105,7 +105,7 @@ export default {
     IconPinterest,
     IconYoutube,
     IconMenuBurger,
-    MenuNavigation,
+    MenuNavigationLink,
   },
   computed: {
     socialNetworkIcons() {
@@ -145,5 +145,3 @@ export default {
   },
 };
 </script>
-
-<style scoped></style>

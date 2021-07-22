@@ -1,14 +1,13 @@
 <template>
   <div>
     <TheHeader />
-    <!-- <router-link :to="{ name: 'home' }">Home</router-link>
-    <router-link :to="{ name: 'news' }">News</router-link> -->
     <router-view></router-view>
   </div>
 </template>
 
 <script>
 import TheHeader from './components/TheHeader.vue';
+
 export default {
   name: 'App',
   components: {

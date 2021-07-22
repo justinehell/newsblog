@@ -28,6 +28,7 @@
 import BaseDate from '../components/Base/BaseDate.vue';
 import BaseTag from '../components/Base/BaseTag.vue';
 import BaseImage from './Base/BaseImage.vue';
+
 export default {
   name: 'NewsCard',
   components: {
@@ -46,6 +47,5 @@ export default {
       isHovered: false,
     };
   },
-  methods: {},
 };
 </script>

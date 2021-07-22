@@ -14,7 +14,7 @@
       class="pb-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16"
     >
       <template v-if="isLoading">
-        <CardSkeletonLoader v-for="n in 9" :key="n" />
+        <SkeletonCardLoader v-for="n in 9" :key="n" />
       </template>
       <NewsCard v-else v-for="(news, i) in newsData" :key="i" :news="news" />
     </main>
@@ -23,13 +23,15 @@
 
 <script>
 import { fetchNews } from '../services/newsApi';
+
 import NewsCard from '../components/NewsCard.vue';
-import CardSkeletonLoader from '../components/CardSkeletonLoader';
+import SkeletonCardLoader from '../components/SkeletonCardLoader';
+
 export default {
   name: 'Home',
   components: {
     NewsCard,
-    CardSkeletonLoader,
+    SkeletonCardLoader,
   },
   data() {
     return {

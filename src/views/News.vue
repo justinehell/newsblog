@@ -1,14 +1,18 @@
 <template>
-  <div>
-    <h1>News Page</h1>
-  </div>
+  <NewsCardDetails :news="news" />
 </template>
 
 <script>
+import NewsCardDetails from '../components/NewsCardDetails.vue';
+
 export default {
   name: 'News',
-  components: {},
+  components: { NewsCardDetails },
+  props: {
+    news: {
+      type: Object,
+      required: true,
+    },
+  },
 };
 </script>
-
-<style></style>
