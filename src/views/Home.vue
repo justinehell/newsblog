@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper pb-6">
     <h1 class="py-10 px-0 font-extrabold text-3xl">
       Les articles les plus lus
     </h1>
@@ -18,6 +18,12 @@
       </template>
       <NewsCard v-else v-for="(news, i) in newsData" :key="i" :news="news" />
     </main>
+    <button
+      class="bg-blue hover:bg-blue-secondary text-white font-bold py-2 px-4 rounded"
+      @click="loadMoreData"
+    >
+      Load More
+    </button>
   </div>
 </template>
 
@@ -26,6 +32,8 @@ import { fetchNews } from '../services/newsApi';
 
 import NewsCard from '../components/NewsCard.vue';
 import SkeletonCardLoader from '../components/SkeletonCardLoader';
+
+import { LIMIT } from '../utils/appSettings';
 
 export default {
   name: 'Home',
@@ -42,15 +50,27 @@ export default {
     };
   },
   created() {
-    fetchNews(this.offset)
-      .then((response) => (this.newsData = response.data.data))
-      .catch((error) => {
-        console.log(error);
-        this.hasError = true;
-      })
-      .finally(() => {
-        setTimeout(() => (this.isLoading = false), 500);
-      });
+    this.fetchData(this.offset);
+  },
+  methods: {
+    fetchData(offset) {
+      return fetchNews(offset)
+        .then(
+          (response) =>
+            (this.newsData = [...this.newsData, ...response.data.data])
+        )
+        .catch((error) => {
+          console.log(error);
+          this.hasError = true;
+        })
+        .finally(() => {
+          setTimeout(() => (this.isLoading = false), 500);
+        });
+    },
+    loadMoreData() {
+      this.offset += LIMIT;
+      this.fetchData(this.offset);
+    },
   },
 };
 </script>
