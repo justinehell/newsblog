@@ -13,20 +13,12 @@
           </li>
         </ul>
         <ul id="menu-top-list" class="overflow-hidden flex justify-between">
-          <li>
+          <li v-for="menuLink in menuTopNavigationLinks" :key="menuLink.title">
             <MenuNavigationLink
               secondary
-              :to="{ name: 'home' }"
-              title="A propos"
-              linkTitle="a propos"
-            />
-          </li>
-          <li>
-            <MenuNavigationLink
-              secondary
-              :to="{ name: 'home' }"
-              title="Mes favoris"
-              linkTitle="favoris"
+              :to="menuLink.to"
+              :title="menuLink.title"
+              :linkTitle="menuLink.linkTitle"
             />
           </li>
         </ul>
@@ -49,12 +41,13 @@
           }"
         >
           <li
-            v-for="menuLink in menuNavigationLinks"
+            v-for="menuLink in menuBottomNavigationLinks"
             :key="menuLink.title"
-            class="pr-3 lg:mb-0"
+            class="lg:mb-0"
             :class="{
-              'mb-3':
-                menuLink != menuNavigationLinks[menuNavigationLinks.length - 1],
+              'mb-3 pr-3':
+                menuLink !=
+                menuBottomNavigationLinks[menuBottomNavigationLinks.length - 1],
             }"
           >
             <MenuNavigationLink
@@ -139,29 +132,48 @@ export default {
         },
       ];
     },
-    menuNavigationLinks() {
+    menuTopNavigationLinks() {
       return [
         {
           to: { name: 'home' },
-          title: 'Actualités',
-          linkTitle: 'actualités',
+          title: this.capitalized(this.$t('nav.about')),
+          linkTitle: this.$t('nav.about'),
         },
         {
           to: { name: 'home' },
-          title: 'Technologies',
-          linkTitle: 'technologies',
-        },
-        {
-          to: { name: 'home' },
-          title: 'Sciences',
-          linkTitle: 'sciences',
-        },
-        {
-          to: { name: 'home' },
-          title: 'Divertissements',
-          linkTitle: 'divertissements',
+          title: this.capitalized(this.$t('nav.favorites')),
+          linkTitle: this.$t('nav.favorites'),
         },
       ];
+    },
+    menuBottomNavigationLinks() {
+      return [
+        {
+          to: { name: 'home' },
+          title: this.capitalized(this.$t('nav.news')),
+          linkTitle: this.$t('nav.news'),
+        },
+        {
+          to: { name: 'home' },
+          title: this.capitalized(this.$t('nav.technologies')),
+          linkTitle: this.$t('nav.technologies'),
+        },
+        {
+          to: { name: 'home' },
+          title: this.capitalized(this.$t('nav.sciences')),
+          linkTitle: this.$t('nav.sciences'),
+        },
+        {
+          to: { name: 'home' },
+          title: this.capitalized(this.$t('nav.entertainments')),
+          linkTitle: this.$t('nav.entertainments'),
+        },
+      ];
+    },
+  },
+  methods: {
+    capitalized(str) {
+      return this.$options.filters.capitalize(str);
     },
   },
 };

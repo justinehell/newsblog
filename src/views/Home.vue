@@ -1,12 +1,11 @@
 <template>
   <div class="pb-6 max-w-screen-xl my-0 mx-5 md:mx-10 xl:m-auto">
     <h1 class="py-10 px-0 font-extrabold text-3xl">
-      Les articles les plus lus
+      {{ $t('pages.home.title') }}
     </h1>
     <main v-if="hasError">
       <p>
-        Nous sommes désolés, nous ne sommes pas en mesure de récupérer ces
-        informations pour le moment. Veuillez réessayer ultérieurement.
+        {{ $t('pages.home.errorMessage') }}
       </p>
     </main>
     <main
@@ -22,7 +21,7 @@
       class="bg-blue hover:bg-blue-secondary text-white font-bold py-2 px-4 rounded"
       @click="loadMoreData"
     >
-      Load More
+      {{ $t('utils.seeMore') }}
     </button>
   </div>
 </template>

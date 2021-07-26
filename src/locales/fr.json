@@ -1,0 +1,19 @@
+{
+  "utils": {
+    "seeMore": "Voir plus"
+  },
+  "pages": {
+    "home": {
+      "title": "Les articles les plus lus",
+      "errorMessage": "Nous sommes désolés, nous ne sommes pas en mesure de récupérer ces informations pour le moment. Veuillez réessayer ultérieurement."
+    }
+  },
+  "nav": {
+    "about": "a propos",
+    "favorites": "mes favoris",
+    "news": "actualités",
+    "technologies": "technologies",
+    "sciences": "sciences",
+    "entertainments": "divertissements"
+  }
+}
