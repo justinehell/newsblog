@@ -1,25 +1,12 @@
+import axios from 'axios';
+
 import { LIMIT } from '../utils/appSettings';
 
-const BASE_URL = process.env.BASE_URL;
-const API_KEY = process.env.API_KEY;
+const API_KEY = process.env.VUE_APP_API_KEY;
+const BASE_URL = process.env.VUE_APP_BASE_URL;
 
 export const fetchNews = (offset) => {
-  return fetch(
+  return axios.get(
     `${BASE_URL}access_key=${API_KEY}&languages=fr,en&limit=${LIMIT}&offset=${offset}`
-  )
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        return Promise.reject(res);
-      }
-    })
-    .then((data) => {
-      return data.data;
-    })
-    .catch(function (err) {
-      // There was an error
-      console.warn('Something went wrong.', err);
-      return Promise.reject(err);
-    });
+  );
 };

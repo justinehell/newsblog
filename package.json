@@ -1,26 +1,66 @@
 {
   "name": "newsblog",
   "version": "1.0.0",
+  "private": true,
   "description": "",
-  "scripts": {
-    "dev": "parcel src/index.html src/detail.html",
-    "build": "parcel build src/index.html src/detail.html"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/justinehell/newsblog.git"
-  },
-  "keywords": [],
   "author": "",
-  "license": "ISC",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@tailwindcss/aspect-ratio": "^0.2.1",
+    "axios": "^0.21.1",
+    "core-js": "^3.6.5",
+    "dayjs": "^1.10.6",
+    "vue": "^2.6.14",
+    "vue-i18n": "^8.25.0",
+    "vue-router": "^3.5.2"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "autoprefixer": "^9.8.6",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "postcss": "^7.0.36",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.4",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "_id": "newsblog@1.0.0",
   "bugs": {
     "url": "https://github.com/justinehell/newsblog/issues"
   },
   "homepage": "https://github.com/justinehell/newsblog#readme",
-  "devDependencies": {
-    "@parcel/transformer-image": "^2.0.0-beta.2"
-  },
-  "dependencies": {
-    "dayjs": "^1.10.6"
+  "keywords": [],
+  "license": "ISC",
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justinehell/newsblog.git"
   }
 }

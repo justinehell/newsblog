@@ -1,0 +1,19 @@
+{
+  "utils": {
+    "seeMore": "See More"
+  },
+  "pages": {
+    "home": {
+      "title": "The most read articles",
+      "errorMessage": "We are sorry, we are unable to retrieve this information at this time. Please retry later."
+    }
+  },
+  "nav": {
+    "about": "about",
+    "favorites": "favorites",
+    "news": "news",
+    "technologies": "technologies",
+    "sciences": "sciences",
+    "entertainments": "entertainments"
+  }
+}

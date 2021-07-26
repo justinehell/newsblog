@@ -4,11 +4,7 @@
 
 @font-face {
   font-family: 'Heebo';
-<<<<<<< HEAD:src/assets/style/global.css
-  src: url('../fonts/Heebo-Regular.ttf');
-=======
   src: url('../assets/fonts/Heebo-Regular.ttf');
->>>>>>> 2/building-tools--parcel:src/style/global.css
   font-style: normal;
   /* font-weight: normal; */
 }
