@@ -1,7 +1,5 @@
 import dayjs from 'dayjs';
-
-import Logo from '../assets/images/logo.svg';
-import NewsImage from '../assets/images/news.jpg';
+import NewsImage from 'url:../assets/images/news.jpg';
 
 const handleClick = (id) => {
   let query = '?id=' + id;
@@ -59,8 +57,4 @@ export const getCardNewsDetail = (currentNews) => {
   document
     .querySelector('.article__image')
     .setAttribute('src', currentNews.image ? currentNews.image : NewsImage);
-};
-
-export const displayLogo = () => {
-  document.getElementById('logo').src = Logo;
 };

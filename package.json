@@ -2,11 +2,9 @@
   "name": "newsblog",
   "version": "1.0.0",
   "description": "",
-  "main": "webpack.config.js",
   "scripts": {
-    "build": "webpack --config webpack.prod.js",
-    "dev": "webpack serve --config webpack.dev.js",
-    "prod": "webpack serve --config webpack.prod.js"
+    "dev": "parcel src/index.html src/detail.html",
+    "build": "parcel build src/index.html src/detail.html"
   },
   "repository": {
     "type": "git",
@@ -20,16 +18,9 @@
   },
   "homepage": "https://github.com/justinehell/newsblog#readme",
   "devDependencies": {
-    "css-loader": "^6.0.0",
-    "html-webpack-plugin": "^5.3.2",
-    "style-loader": "^3.1.0",
-    "webpack": "^5.44.0",
-    "webpack-cli": "^4.7.2",
-    "webpack-dev-server": "^3.11.2",
-    "webpack-merge": "^5.8.0"
+    "@parcel/transformer-image": "^2.0.0-beta.2"
   },
   "dependencies": {
-    "dayjs": "^1.10.6",
-    "dotenv": "^10.0.0"
+    "dayjs": "^1.10.6"
   }
 }

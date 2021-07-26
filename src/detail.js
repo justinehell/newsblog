@@ -1,7 +1,4 @@
-import './assets/style/global.css';
-import './assets/style/style.css';
-
-import { getCardNewsDetail, displayLogo } from './utils/domModel';
+import { getCardNewsDetail } from './utils/domModel';
 import { getStoredData } from './utils/sessionStorage';
 
 let newsData = getStoredData('newsData');
@@ -13,5 +10,4 @@ let currentNews = newsData[searchParams.get('id')];
 
 document.title = currentNews.title;
 
-displayLogo();
 getCardNewsDetail(currentNews);

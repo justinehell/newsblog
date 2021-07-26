@@ -1,7 +1,4 @@
-import './assets/style/global.css';
-import './assets/style/style.css';
-
-import { getCardNews, displayLogo } from './utils/domModel';
+import { getCardNews } from './utils/domModel';
 import { fetchNews } from './services/newsApi';
 import { getStoredData, setStoredData } from './utils/sessionStorage';
 import { LIMIT } from './utils/appSettings';
@@ -14,8 +11,6 @@ if (process.env.NODE_ENV !== 'production') {
 } else {
   console.log('Well hello production mode!');
 }
-
-displayLogo();
 
 let menuBurger = document.getElementById('toggle-menu-btn');
 let menuBottomList = document.getElementById('menu-bottom-list');
@@ -71,5 +66,4 @@ window.addEventListener('resize', function (event) {
 });
 
 initialNews();
-//sessionStorage.getItem('newsData') ? null : showNews();
 getStoredData('newsData') ? null : showNews();
