@@ -24,6 +24,12 @@
     >
       {{ $t('utils.seeMore') }}
     </button>
+    <div class="mt-8">
+      <p>{{ $d(new Date(), 'short') }}</p>
+      <p>{{ $d(new Date(), 'long', 'ja-JP') }}</p>
+      <p>{{ $d(new Date(), 'long', 'fr') }}</p>
+      <p>{{ $d(new Date(), 'short', 'fr') }}</p>
+    </div>
   </div>
 </template>
 
