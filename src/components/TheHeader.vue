@@ -32,7 +32,6 @@
               v-for="(lang, i) in $i18n.availableLocales"
               :key="`Lang${i}`"
               :value="lang"
-              @click="updateUrlLangLocale(lang)"
             >
               {{ lang }}
             </option>
@@ -185,6 +184,11 @@ export default {
           linkTitle: this.$t('nav.entertainments'),
         },
       ];
+    },
+  },
+  watch: {
+    '$i18n.locale'(lang) {
+      this.updateUrlLangLocale(lang);
     },
   },
   methods: {
