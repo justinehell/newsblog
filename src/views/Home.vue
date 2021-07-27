@@ -18,11 +18,18 @@
       <NewsCard v-else v-for="(news, i) in newsData" :key="i" :news="news" />
     </main>
     <button
+      v-if="!hasError"
       class="bg-blue hover:bg-blue-secondary text-white font-bold py-2 px-4 rounded"
       @click="loadMoreData"
     >
       {{ $t('utils.seeMore') }}
     </button>
+    <div class="mt-8">
+      <p>{{ $d(new Date(), 'short') }}</p>
+      <p>{{ $d(new Date(), 'long', 'ja-JP') }}</p>
+      <p>{{ $d(new Date(), 'long', 'fr') }}</p>
+      <p>{{ $d(new Date(), 'short', 'fr') }}</p>
+    </div>
   </div>
 </template>
 

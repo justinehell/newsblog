@@ -12,7 +12,10 @@
             </a>
           </li>
         </ul>
-        <ul id="menu-top-list" class="overflow-hidden flex justify-between">
+        <ul
+          id="menu-top-list"
+          class="overflow-hidden flex justify-between items-center"
+        >
           <li v-for="menuLink in menuTopNavigationLinks" :key="menuLink.title">
             <MenuNavigationLink
               secondary
@@ -21,6 +24,18 @@
               :linkTitle="menuLink.linkTitle"
             />
           </li>
+          <select
+            v-model="$i18n.locale"
+            class="mx-5 text-dark py-2 px-2 rounded"
+          >
+            <option
+              v-for="(lang, i) in $i18n.availableLocales"
+              :key="`Lang${i}`"
+              :value="lang"
+            >
+              {{ lang }}
+            </option>
+          </select>
         </ul>
       </div>
       <div
@@ -171,9 +186,17 @@ export default {
       ];
     },
   },
+  watch: {
+    '$i18n.locale'(lang) {
+      this.updateUrlLangLocale(lang);
+    },
+  },
   methods: {
     capitalized(str) {
       return this.$options.filters.capitalize(str);
+    },
+    updateUrlLangLocale(lang) {
+      this.$router.push({ params: { lang } });
     },
   },
 };
