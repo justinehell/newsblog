@@ -2,12 +2,10 @@
   <span
     class="text-light-gray text-xs tracking-wider"
     :class="{ 'text-lg': big }"
-    >{{ publishedDate }}</span
+    >{{ $d(new Date(date), 'numeric') }}</span
   >
 </template>
 <script>
-import dayjs from 'dayjs';
-
 export default {
   name: 'BaseDate',
   props: {
@@ -17,11 +15,6 @@ export default {
     },
     big: {
       type: Boolean,
-    },
-  },
-  computed: {
-    publishedDate() {
-      return dayjs(this.date).format('DD/MM/YYYY');
     },
   },
 };

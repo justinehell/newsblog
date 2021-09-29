@@ -15,56 +15,59 @@
       <template v-if="isLoading">
         <SkeletonCardLoader v-for="n in 9" :key="n" />
       </template>
-      <NewsCard v-else v-for="(news, i) in newsData" :key="i" :news="news" />
+      <ArticleCard
+        v-else
+        v-for="(article, i) in articles"
+        :key="i"
+        :article="article"
+      />
     </main>
     <button
-      v-if="!hasError"
+      v-if="moreArticlesAvailable"
       class="bg-blue hover:bg-blue-secondary text-white font-bold py-2 px-4 rounded"
-      @click="loadMoreData"
+      @click="loadMoreArticles"
     >
       {{ $t('utils.seeMore') }}
     </button>
-    <div class="mt-8">
-      <p>{{ $d(new Date(), 'short') }}</p>
-      <p>{{ $d(new Date(), 'long', 'ja-JP') }}</p>
-      <p>{{ $d(new Date(), 'long', 'fr') }}</p>
-      <p>{{ $d(new Date(), 'short', 'fr') }}</p>
-    </div>
   </div>
 </template>
 
 <script>
 import { fetchNews } from '../services/newsApi';
 
-import NewsCard from '../components/NewsCard.vue';
+import ArticleCard from '../components/ArticleCard.vue';
 import SkeletonCardLoader from '../components/SkeletonCardLoader';
-
-import { LIMIT } from '../utils/appSettings';
 
 export default {
   name: 'Home',
   components: {
-    NewsCard,
+    ArticleCard,
     SkeletonCardLoader,
   },
   data() {
     return {
-      newsData: [],
+      articles: [],
       isLoading: true,
       hasError: false,
-      offset: 0,
+      page: 1,
+      totalArticles: 0,
     };
   },
   created() {
-    this.fetchData(this.offset);
+    this.fetchData();
+  },
+  computed: {
+    moreArticlesAvailable() {
+      return this.totalArticles > this.articles.length;
+    },
   },
   methods: {
-    fetchData(offset) {
-      return fetchNews(offset)
-        .then(
-          (response) =>
-            (this.newsData = [...this.newsData, ...response.data.data])
-        )
+    fetchData(page = 1) {
+      return fetchNews(page)
+        .then((response) => {
+          this.articles = [...this.articles, ...response.data.articles];
+          this.totalArticles = response.data.totalResults;
+        })
         .catch((error) => {
           console.log(error);
           this.hasError = true;
@@ -73,9 +76,9 @@ export default {
           setTimeout(() => (this.isLoading = false), 500);
         });
     },
-    loadMoreData() {
-      this.offset += LIMIT;
-      this.fetchData(this.offset);
+    loadMoreArticles() {
+      this.page += 1;
+      this.fetchData(this.page);
     },
   },
 };

@@ -10,8 +10,8 @@ function loadLocaleMessages() {
     true,
     /[A-Za-z0-9-_,\s]+\.json$/i
   );
-  // console.log(locales) --> function webpackContext(req)
-  // console.log(locales.keys()) --> Array [ "./en.json", "./fr.json" ]
+  // locales --> function webpackContext(req)
+  // locales.keys() --> Array [ "./en.json", "./fr.json" ]
 
   const messages = {};
   locales.keys().forEach((key) => {
@@ -28,7 +28,7 @@ function loadLocaleMessages() {
     }
   });
 
-  // console.log(messages);
+  // messages =
   //  {
   //    en:  { nav: {...},  pages: {...}, utils: {...} },
   //    fr:  { nav: {...},  pages: {...}, utils: {...} }
@@ -39,53 +39,17 @@ function loadLocaleMessages() {
 
 const dateTimeFormats = {
   en: {
-    short: {
+    numeric: {
       year: 'numeric',
-      month: 'short',
+      month: 'numeric',
       day: 'numeric',
-    },
-    long: {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-      weekday: 'long',
-      hour: 'numeric',
-      minute: 'numeric',
     },
   },
   fr: {
-    short: {
+    numeric: {
       year: 'numeric',
-      month: 'short',
-      day: '2-digit',
-    },
-    long: {
-      era: 'short',
-      year: 'numeric',
-      month: 'long',
+      month: 'numeric',
       day: 'numeric',
-      weekday: 'long',
-      hour: 'numeric',
-      minute: 'numeric',
-      timeZoneName: 'long',
-      hour12: true,
-    },
-  },
-  'ja-JP': {
-    short: {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-    },
-    long: {
-      // era: 'long',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-      weekday: 'long',
-      hour: 'numeric',
-      minute: 'numeric',
-      hour12: true,
     },
   },
 };

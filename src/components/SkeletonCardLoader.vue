@@ -10,6 +10,6 @@
 
 <script>
 export default {
-  name: 'CardSkeletonLoader',
+  name: 'SkeletonCardLoader',
 };
 </script>

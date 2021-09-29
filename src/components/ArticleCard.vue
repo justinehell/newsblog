@@ -1,6 +1,6 @@
 <template>
   <router-link
-    :to="{ name: 'news', params: { news: news } }"
+    :to="{ name: 'Article', params: { article } }"
     style="display: inherit"
   >
     <article
@@ -8,36 +8,36 @@
       @mouseenter="isHovered = true"
       @mouseleave="isHovered = false"
     >
-      <BaseImage :image="news.image" />
+      <BaseImage :image="article.urlToImage" />
       <div class="flex flex-grow flex-col p-6 items-start">
-        <BaseTag :tag="news.category" />
+        <BaseTag :tag="article.source.name" />
         <h2
           class="text-dark-secondary font-semibold text-2xl px-0 py-5 transition-all ease-in-out duration-300 "
           :class="{ 'text-blue-secondary ': isHovered }"
         >
-          {{ news.title }}
+          {{ article.title }}
         </h2>
         <div class="flex-grow"></div>
-        <BaseDate :date="news.published_at" />
+        <BaseDate :date="article.publishedAt" />
       </div>
     </article>
   </router-link>
 </template>
 
 <script>
-import BaseDate from '../components/Base/BaseDate.vue';
-import BaseTag from '../components/Base/BaseTag.vue';
+import BaseDate from './Base/BaseDate.vue';
+import BaseTag from './Base/BaseTag.vue';
 import BaseImage from './Base/BaseImage.vue';
 
 export default {
-  name: 'NewsCard',
+  name: 'ArticleCard',
   components: {
     BaseDate,
     BaseTag,
     BaseImage,
   },
   props: {
-    news: {
+    article: {
       type: Object,
       required: true,
     },
