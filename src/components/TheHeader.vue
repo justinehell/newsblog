@@ -150,12 +150,12 @@ export default {
     menuTopNavigationLinks() {
       return [
         {
-          to: { name: 'home' },
+          to: { name: 'Home' },
           title: this.capitalized(this.$t('nav.about')),
           linkTitle: this.$t('nav.about'),
         },
         {
-          to: { name: 'home' },
+          to: { name: 'Home' },
           title: this.capitalized(this.$t('nav.favorites')),
           linkTitle: this.$t('nav.favorites'),
         },
@@ -164,22 +164,22 @@ export default {
     menuBottomNavigationLinks() {
       return [
         {
-          to: { name: 'home' },
+          to: { name: 'Home' },
           title: this.capitalized(this.$t('nav.news')),
           linkTitle: this.$t('nav.news'),
         },
         {
-          to: { name: 'home' },
+          to: { name: 'Home' },
           title: this.capitalized(this.$t('nav.technologies')),
           linkTitle: this.$t('nav.technologies'),
         },
         {
-          to: { name: 'home' },
+          to: { name: 'Home' },
           title: this.capitalized(this.$t('nav.sciences')),
           linkTitle: this.$t('nav.sciences'),
         },
         {
-          to: { name: 'home' },
+          to: { name: 'Home' },
           title: this.capitalized(this.$t('nav.entertainments')),
           linkTitle: this.$t('nav.entertainments'),
         },

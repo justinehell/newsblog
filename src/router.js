@@ -21,18 +21,18 @@ export default new Router({
       },
       children: [
         {
-          path: '/',
-          name: 'home',
+          path: '',
+          name: 'Home',
           component: Home,
         },
         {
-          path: 'news',
-          name: 'news',
+          path: 'article',
+          name: 'Article',
           component: () =>
             // route level code-splitting
             // this generates a separate chunk (about.[hash].js) for this route
             // which is lazy-loaded when the route is visited
-            import(/* webpackChunkName: "news" */ './views/News.vue'),
+            import(/* webpackChunkName: "Article" */ './views/Article.vue'),
           props: true,
         },
       ],
